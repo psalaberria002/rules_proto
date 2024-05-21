@@ -1,6 +1,6 @@
 {
   "lockFileVersion": 6,
-  "moduleFileHash": "321a56e76d8741956b8c24ffc3015b50ab2cc32e2b1d1712aa9916c248092be8",
+  "moduleFileHash": "a88fae2b11c5034eb3c13335461432f5264959d0193ba2bec0185f7f69960c97",
   "flags": {
     "cmdRegistries": [
       "https://bcr.bazel.build/"
@@ -23,9 +23,29 @@
       "repoName": "rules_proto",
       "executionPlatformsToRegister": [],
       "toolchainsToRegister": [
-        "//:proto_toolchain_toolchain"
+        "@rules_proto_protoc//:all"
       ],
-      "extensionUsages": [],
+      "extensionUsages": [
+        {
+          "extensionBzlFile": "@rules_proto//proto:extensions.bzl",
+          "extensionName": "proto",
+          "usingModule": "<root>",
+          "location": {
+            "file": "@@//:MODULE.bazel",
+            "line": 21,
+            "column": 22
+          },
+          "imports": {
+            "rules_proto_protoc": "rules_proto_protoc"
+          },
+          "devImports": [
+            "rules_proto_protoc"
+          ],
+          "tags": [],
+          "hasDevUseExtension": true,
+          "hasNonDevUseExtension": false
+        }
+      ],
       "deps": {
         "rules_license": "rules_license@0.0.7",
         "bazel_skylib": "bazel_skylib@1.5.0",
@@ -1106,6 +1126,22 @@
     }
   },
   "moduleExtensions": {
+    "//proto:extensions.bzl%proto": {
+      "general": {
+        "bzlTransitiveDigest": "WGfuv31bpl4xtvQ67V+8eCmpnwRMayVl/TXnE4MHIDg=",
+        "recordedFileInputs": {},
+        "recordedDirentsInputs": {},
+        "envVariables": {},
+        "generatedRepoSpecs": {
+          "rules_proto_protoc": {
+            "bzlFile": "@@//proto/private/protoc:protoc_toolchain.bzl",
+            "ruleClassName": "protoc_toolchain_repo",
+            "attributes": {}
+          }
+        },
+        "recordedRepoMappingEntries": []
+      }
+    },
     "@@apple_support~//crosstool:setup.bzl%apple_cc_configure_extension": {
       "general": {
         "bzlTransitiveDigest": "pMLFCYaRPkgXPQ8vtuNkMfiHfPmRBy6QJfnid4sWfv0=",

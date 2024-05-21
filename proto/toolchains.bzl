@@ -14,8 +14,11 @@
 
 """Toolchains required to use rules_proto."""
 
-def rules_proto_toolchains():
+load("//proto/private/protoc:protoc_toolchain.bzl", "protoc_toolchain_repo")
+
+def rules_proto_toolchains(name, register = True):
     """An utility method to load all Protobuf toolchains."""
 
-    # Nothing to do here (yet).
-    pass
+    protoc_toolchain_repo(name = name)
+    if register:
+        native.register_toolchains("@{}//:all".format(name))
